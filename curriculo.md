@@ -3,7 +3,7 @@
 **[SEU NOME COMPLETO]**  
 Belo Horizonte, MG – Brasil  
 E-mail: [seu-email@dominio.com] | Telefone: (31) 9XXXX-XXXX  
-GitHub: [github.com/seu-usuario] | Portfólio de Infraestrutura: [link-do-repositorio]  
+GitHub: [github.com/hermes-pantheon-pb](https://github.com/hermes-pantheon-pb) | Portfólio de Infraestrutura: [github.com/hermes-pantheon-pb/devops-portfolio](https://github.com/hermes-pantheon-pb/devops-portfolio)  
 LinkedIn: [linkedin.com/in/seu-perfil]  
 
 > **[Espaço para Foto 3x4]**: Adicione o arquivo `foto-perfil.jpg` nesta pasta para que sua foto seja renderizada automaticamente no cabeçalho do currículo.
