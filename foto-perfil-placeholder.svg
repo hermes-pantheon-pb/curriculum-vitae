@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 145" width="120" height="145">
+  <defs>
+    <linearGradient id="darkBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2a2420"/>
+      <stop offset="100%" stop-color="#1d1916"/>
+    </linearGradient>
+    <linearGradient id="darkAvatar" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#6e6258"/>
+      <stop offset="100%" stop-color="#4a413a"/>
+    </linearGradient>
+    <linearGradient id="amberAccent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ea580c"/>
+      <stop offset="100%" stop-color="#f97316"/>
+    </linearGradient>
+  </defs>
+  <rect width="120" height="145" rx="4" fill="url(#darkBg)"/>
+  <rect x="2" y="2" width="116" height="141" rx="3" fill="none" stroke="#443930" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <g transform="translate(10, 12)">
+    <!-- Head -->
+    <circle cx="50" cy="38" r="22" fill="url(#darkAvatar)"/>
+    <!-- Shoulders/Body -->
+    <path d="M12 98 C12 70 30 62 50 62 C70 62 88 70 88 98 Z" fill="url(#darkAvatar)"/>
+    <!-- Tech Orange Badge -->
+    <circle cx="76" cy="24" r="11" fill="url(#amberAccent)" stroke="#1d1916" stroke-width="2"/>
+    <path d="M72 24 H80 M76 20 V28" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+  </g>
+  <text x="60" y="126" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9.5" font-weight="600" fill="#d6ceca">
+    Foto 3x4
+  </text>
+  <text x="60" y="137" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="7.5" fill="#a89a90">
+    foto-perfil.jpg
+  </text>
+</svg>

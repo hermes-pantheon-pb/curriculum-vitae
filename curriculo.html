@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Curriculum Vitae - Engenharia de Computação UFMG | DevOps &amp; Infraestrutura</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-body: #161412;
+      --bg-card: #201c19;
+      --bg-card-alt: #26211d;
+      --border-main: #362e27;
+      --border-accent: #4a3e35;
+      --text-head: #faf5ef;
+      --text-body: #cfc5ba;
+      --text-muted: #9c9083;
+      --accent-orange: #f97316;
+      --accent-burnt: #ea580c;
+      --accent-amber: #fb923c;
+      --accent-glow: rgba(249, 115, 22, 0.12);
+      --code-bg: #29231e;
+      --code-border: #44382f;
+      --code-text: #fdba74;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: var(--text-body);
+      background-color: var(--bg-body);
+      line-height: 1.55;
+      padding: 36px 16px;
+      font-size: 13.5px;
+      background-image: 
+        radial-gradient(ellipse at 50% 0%, rgba(234, 88, 12, 0.07) 0%, transparent 60%),
+        linear-gradient(to right, rgba(255, 255, 255, 0.012) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.012) 1px, transparent 1px);
+      background-size: 100% 100%, 32px 32px, 32px 32px;
+    }
+
+    .container {
+      max-width: 880px;
+      margin: 0 auto;
+      background: var(--bg-card);
+      border: 1px solid var(--border-main);
+      border-radius: 6px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(249, 115, 22, 0.05);
+      position: relative;
+      overflow: hidden;
+      padding: 40px 48px;
+    }
+
+    /* Linha decorativa de topo (accent laranja/cobre) */
+    .top-accent-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #ea580c 0%, #f97316 45%, #d97706 100%);
+    }
+
+    /* Cabeçalho */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 24px;
+      border-bottom: 1px solid var(--border-main);
+      padding-bottom: 22px;
+      margin-bottom: 22px;
+    }
+
+    .header-content {
+      flex: 1;
+    }
+
+    .sys-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      color: var(--accent-amber);
+      background: rgba(249, 115, 22, 0.08);
+      border: 1px solid rgba(249, 115, 22, 0.25);
+      padding: 2px 8px;
+      border-radius: 3px;
+      margin-bottom: 10px;
+    }
+
+    .badge-dot {
+      width: 6px;
+      height: 6px;
+      background-color: #22c55e;
+      border-radius: 50%;
+      box-shadow: 0 0 6px rgba(34, 197, 94, 0.8);
+      display: inline-block;
+    }
+
+    h1 {
+      font-size: 27px;
+      font-weight: 800;
+      color: var(--text-head);
+      letter-spacing: -0.4px;
+      margin-bottom: 4px;
+    }
+
+    .subtitle {
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--accent-amber);
+      margin-bottom: 12px;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 16px;
+      font-size: 12.5px;
+      color: var(--text-muted);
+    }
+
+    .contact-info a {
+      color: var(--text-head);
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
+
+    .contact-info a:hover {
+      color: var(--accent-orange);
+      text-decoration: underline;
+    }
+
+    .contact-sep {
+      color: var(--border-accent);
+    }
+
+    /* Moldura de Foto 3x4 com Estilo Tech */
+    .photo-wrapper {
+      width: 108px;
+      height: 134px;
+      border: 1px solid var(--border-accent);
+      border-radius: 4px;
+      background: var(--bg-card-alt);
+      padding: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      position: relative;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+    }
+
+    .photo-wrapper::after {
+      content: "";
+      position: absolute;
+      top: -1px;
+      right: -1px;
+      width: 10px;
+      height: 10px;
+      border-top: 2px solid var(--accent-orange);
+      border-right: 2px solid var(--accent-orange);
+    }
+
+    .photo-wrapper::before {
+      content: "";
+      position: absolute;
+      bottom: -1px;
+      left: -1px;
+      width: 10px;
+      height: 10px;
+      border-bottom: 2px solid var(--accent-orange);
+      border-left: 2px solid var(--accent-orange);
+    }
+
+    .photo-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      border-radius: 2px;
+    }
+
+    /* Seções */
+    section {
+      margin-bottom: 22px;
+    }
+
+    h2 {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--text-head);
+      border-bottom: 1px solid var(--border-main);
+      padding-bottom: 6px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    h2::before {
+      content: "❯";
+      color: var(--accent-orange);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    p {
+      color: var(--text-body);
+      text-align: justify;
+      margin-bottom: 8px;
+      line-height: 1.6;
+    }
+
+    p strong {
+      color: var(--text-head);
+      font-weight: 600;
+    }
+
+    /* Formação Acadêmica */
+    .education-item {
+      background: var(--bg-card-alt);
+      border: 1px solid var(--border-main);
+      border-left: 3px solid var(--accent-orange);
+      border-radius: 4px;
+      padding: 12px 16px;
+    }
+
+    .education-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 2px;
+    }
+
+    .education-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-head);
+    }
+
+    .education-date {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: var(--accent-amber);
+      font-weight: 500;
+    }
+
+    .education-school {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* Competências Técnicas (Terminal Cards) */
+    .skills-list {
+      list-style-type: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .skills-list li {
+      background: var(--bg-card-alt);
+      border: 1px solid var(--border-main);
+      border-left: 3px solid var(--accent-burnt);
+      border-radius: 4px;
+      padding: 8px 14px;
+      font-size: 13px;
+      color: var(--text-body);
+      line-height: 1.5;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 4px 8px;
+      transition: border-color 0.15s ease, background 0.15s ease;
+    }
+
+    .skills-list li:hover {
+      border-left-color: var(--accent-orange);
+      background: #2b2520;
+    }
+
+    .skills-list li strong {
+      color: var(--text-head);
+      font-weight: 700;
+      font-size: 12.5px;
+      min-width: 215px;
+      display: inline-block;
+      letter-spacing: 0.2px;
+    }
+
+    /* Experiência / Projetos */
+    .job {
+      margin-bottom: 20px;
+    }
+
+    .job-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 2px;
+    }
+
+    .job-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-head);
+    }
+
+    .job-date {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--accent-amber);
+      background: rgba(249, 115, 22, 0.08);
+      padding: 1px 7px;
+      border-radius: 3px;
+      border: 1px solid rgba(249, 115, 22, 0.2);
+    }
+
+    .job-sub {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      font-style: italic;
+      margin-bottom: 8px;
+    }
+
+    ul.bullets {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    ul.bullets li {
+      font-size: 13px;
+      color: var(--text-body);
+      margin-bottom: 7px;
+      line-height: 1.55;
+      position: relative;
+      padding-left: 18px;
+    }
+
+    ul.bullets li::before {
+      content: "▪";
+      position: absolute;
+      left: 3px;
+      top: 0;
+      color: var(--accent-orange);
+      font-size: 11px;
+    }
+
+    ul.bullets li strong {
+      color: var(--text-head);
+      font-weight: 600;
+    }
+
+    /* Linha de URL / Demonstração */
+    .url-item {
+      margin-top: 6px;
+      margin-bottom: 6px;
+      background: #181513;
+      border: 1px solid var(--border-accent);
+      border-left: 3px solid var(--accent-orange);
+      padding: 6px 12px;
+      border-radius: 4px;
+      font-size: 12.5px;
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .url-item strong {
+      color: var(--accent-amber);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11.5px;
+    }
+
+    .url-item a {
+      color: #ffedd5;
+      text-decoration: underline;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      transition: color 0.15s ease;
+    }
+
+    .url-item a:hover {
+      color: var(--accent-orange);
+    }
+
+    /* Código inline com estilo tech */
+    code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      background: var(--code-bg);
+      border: 1px solid var(--code-border);
+      color: var(--code-text);
+      padding: 1px 5px;
+      border-radius: 3px;
+    }
+
+    /* Configuração de Impressão (Fiel e Econômica para PDF) */
+    @media print {
+      body {
+        background: #ffffff !important;
+        background-image: none !important;
+        color: #1a1a1a !important;
+        padding: 0 !important;
+        font-size: 12.5px !important;
+      }
+
+      .container {
+        background: #ffffff !important;
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+        max-width: 100% !important;
+      }
+
+      .top-accent-bar, .sys-badge {
+        display: none !important;
+      }
+
+      header {
+        border-bottom: 2px solid #222222 !important;
+        margin-bottom: 16px !important;
+        padding-bottom: 14px !important;
+      }
+
+      h1 {
+        color: #000000 !important;
+      }
+
+      .subtitle {
+        color: #c2410c !important;
+      }
+
+      .contact-info {
+        color: #444444 !important;
+      }
+
+      .contact-info a {
+        color: #111111 !important;
+      }
+
+      .photo-wrapper {
+        border: 1px solid #cccccc !important;
+        background: #ffffff !important;
+        box-shadow: none !important;
+      }
+
+      .photo-wrapper::before, .photo-wrapper::after {
+        display: none !important;
+      }
+
+      h2 {
+        border-bottom: 1.5px solid #222222 !important;
+        color: #000000 !important;
+        margin-top: 14px !important;
+        margin-bottom: 8px !important;
+      }
+
+      h2::before {
+        color: #c2410c !important;
+      }
+
+      p {
+        color: #222222 !important;
+      }
+
+      p strong, ul.bullets li strong {
+        color: #000000 !important;
+      }
+
+      .education-item {
+        background: #fafafa !important;
+        border: 1px solid #e0e0e0 !important;
+        border-left: 3px solid #c2410c !important;
+      }
+
+      .education-title {
+        color: #000000 !important;
+      }
+
+      .education-date {
+        color: #c2410c !important;
+      }
+
+      .education-school {
+        color: #555555 !important;
+      }
+
+      .skills-list li {
+        background: #fafafa !important;
+        border: 1px solid #e0e0e0 !important;
+        border-left: 3px solid #c2410c !important;
+        color: #222222 !important;
+      }
+
+      .skills-list li strong {
+        color: #000000 !important;
+      }
+
+      .job {
+        page-break-inside: avoid;
+      }
+
+      .job-title {
+        color: #000000 !important;
+      }
+
+      .job-date {
+        background: none !important;
+        border: none !important;
+        color: #555555 !important;
+      }
+
+      .job-sub {
+        color: #555555 !important;
+      }
+
+      ul.bullets li {
+        color: #222222 !important;
+      }
+
+      ul.bullets li::before {
+        color: #c2410c !important;
+      }
+
+      .url-item {
+        background: #f5f5f5 !important;
+        border: 1px solid #dddddd !important;
+        border-left: 3px solid #c2410c !important;
+      }
+
+      .url-item strong {
+        color: #c2410c !important;
+      }
+
+      .url-item a {
+        color: #000000 !important;
+      }
+
+      code {
+        background: #f4f4f4 !important;
+        border: 1px solid #dddddd !important;
+        color: #111111 !important;
+      }
+
+      a {
+        color: #000000 !important;
+        text-decoration: none !important;
+      }
+
+      @page {
+        margin: 1.2cm 1.4cm;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="top-accent-bar"></div>
+
+    <header>
+      <div class="header-content">
+        <div class="sys-badge">
+          <span class="badge-dot"></span>
+          <span>SYS_NODE // UFMG ENG_COMP</span>
+        </div>
+        <h1>[SEU NOME COMPLETO]</h1>
+        <div class="subtitle">Estudante de Engenharia de Computação — UFMG | Infraestrutura, Linux &amp; DevOps</div>
+        <div class="contact-info">
+          <span>📍 Belo Horizonte, MG</span>
+          <span class="contact-sep">•</span>
+          <span>📧 <a href="mailto:seu-email@dominio.com">seu-email@dominio.com</a></span>
+          <span class="contact-sep">•</span>
+          <span>📱 (31) 9XXXX-XXXX</span>
+          <span class="contact-sep">•</span>
+          <span>💻 <a href="https://github.com/seu-usuario" target="_blank">github.com/seu-usuario</a></span>
+          <span class="contact-sep">•</span>
+          <span>🔗 <a href="#" target="_blank">Portfólio de Infraestrutura</a></span>
+        </div>
+      </div>
+
+      <!-- Espaço para Foto 3x4 Profissional -->
+      <div class="photo-wrapper" title="Insira sua foto salvando foto-perfil.jpg nesta pasta">
+        <img src="foto-perfil.jpg" alt="Foto de Perfil" onerror="this.onerror=null; this.src='foto-perfil-placeholder.svg';">
+      </div>
+    </header>
+
+    <!-- Resumo Profissional -->
+    <section>
+      <h2>Resumo Profissional</h2>
+      <p>
+        Estudante de <strong>Engenharia de Computação na Universidade Federal de Minas Gerais (UFMG)</strong> com sólida experiência prática na administração de sistemas Linux, virtualização de servidores (Proxmox VE), conteinerização com Docker e engenharia de redes segmentadas por VLANs (OPNsense e OpenWrt). Experiência comprovada no planejamento e sustentação de infraestrutura híbrida self-hosted de alta resiliência, integrando clusters locais a nós públicos em nuvem (Oracle Cloud Infrastructure - OCI). Vivência em governança de armazenamento centralizado (MergerFS, NFS/SMB), execução de rotinas de backup conteinerizadas efêmeras com criptografia ponta a ponta (rclone crypt) e observabilidade orientada a eventos e notificações por e-mail (S.M.A.R.T. e Uptime Kuma). Ciente dos fluxos de trabalho com Git e fundamentos conceituais de CI/CD, com forte motivação e preparo técnico para aprender e implementar esteiras de automação contínua dentro do laboratório.
+      </p>
+    </section>
+
+    <!-- Formação Acadêmica -->
+    <section>
+      <h2>Formação Acadêmica</h2>
+      <div class="education-item">
+        <div class="education-header">
+          <span class="education-title">Bacharelado em Engenharia de Computação</span>
+          <span class="education-date">Em andamento (Previsão: [Ano])</span>
+        </div>
+        <div class="education-school">Universidade Federal de Minas Gerais (UFMG) — Belo Horizonte, MG</div>
+      </div>
+    </section>
+
+    <!-- Competências Técnicas & Ferramentas -->
+    <section>
+      <h2>Competências Técnicas</h2>
+      <ul class="skills-list">
+        <li>
+          <strong>Administração Linux:</strong>
+          <span>Linux (Arch, Debian, Alpine), systemd, Shell Scripting, Gestão de Pacotes (apt, pacman, compilação via código-fonte)</span>
+        </li>
+        <li>
+          <strong>Storage &amp; Troubleshooting:</strong>
+          <span>LVM, fstab, ext4/btrfs, Syncthing, Monitoramento (htop, kill), Análise de Logs (journalctl, dmesg)</span>
+        </li>
+        <li>
+          <strong>Contêineres e Implantação:</strong>
+          <span>Docker, Portainer, Arquitetura MicroVM, Oracle Cloud, Nginx (Reverse Proxy)</span>
+        </li>
+        <li>
+          <strong>Redes, SSH e Segurança:</strong>
+          <span>Pilha de Rede Linux (iproute2, ss), SSH, iptables, nftables, WireGuard, SSO</span>
+        </li>
+        <li>
+          <strong>Automação e Controle de Versão:</strong>
+          <span>Python, C, C++, Git / GitHub, Pipelines Automatizados (cron, timers do systemd), rclone</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Experiência Prática & Projetos -->
+    <section>
+      <h2>Experiência Prática &amp; Projetos Realizados</h2>
+      
+      <div class="job">
+        <div class="job-header">
+          <span class="job-title">Infraestrutura Híbrida Self-Hosted, Redes e Virtualização</span>
+          <span class="job-date">2020 – Presente</span>
+        </div>
+        <div class="job-sub">Ambiente de Laboratório Pessoal / Homelab de Alta Resiliência</div>
+        <ul class="bullets">
+          <li><strong>Virtualização e Segmentação Perimetral:</strong> Arquitetei e administro hipervisor Proxmox VE operando firewall OPNsense virtualizado via PCIe Passthrough (IOMMU) de controladora física de rede dedicada. Implementei segmentação de tráfego com bridges Linux e VLANs 802.1Q (zonas confiáveis, dispositivos IoT e rede de convidados isolados), conectadas via trunk a um roteador Wi-Fi 6 com mapeamento para múltiplos SSIDs segregados.</li>
+          <li><strong>Topologia de Rede Desacoplada e Alta Velocidade:</strong> Desenvolvi arquitetura lógica com portas de acesso e bridges Linux para conectar estações de trabalho e microVMs internas com alta largura de banda e sem necessidade de gerenciar tagueamento no sistema operacional convidado.</li>
+          <li><strong>Orquestração Modular de Contêineres em MicroVMs:</strong> Implantei dezenas de cargas de trabalho em microVMs Alpine Linux com recursos otimizados, utilizando stacks desacopladas de Docker Compose gerenciadas via Portainer (TheLounge, Uptime Kuma, streaming de mídia com aceleração por GPU, telemetria, downloaders e servidores de jogos, e outros).</li>
+          <li><strong>Plataforma de Armazenamento Centralizado:</strong> Configurei máquina virtual de armazenamento com OpenMediaVault (OMV) recebendo controladora HBA dedicada via IOMMU. Estruturei pooling de discos heterogêneos via MergerFS e barramento de compartilhamento NFS v4.2 direto sobre bridge isolada sem roteamento ou DNS.</li>
+          <li><strong>Estratégia de Backup 3-2-1 e Automação de Manutenção:</strong> Automatizei fluxos de trabalho de manutenção de infraestrutura e backup criando shell scripts agendados com <code>rclone</code> para sincronização de dados criptografados e off-site (Hetzner, Backblaze, Google Drive). Encapsulei rotinas em contêineres Docker efêmeros descartáveis (<code>docker run --rm</code>, não-root e volume montado como <code>:ro</code>), versionamento para <em>Point-in-Time Recovery</em> e priorização de processos via kernel Linux (<code>nice</code> e <code>ionice</code>).</li>
+          <li><strong>Observabilidade Orientada a Eventos:</strong> Configurei monitoramento contínuo com Uptime Kuma para verificação de disponibilidade e latência com alertas imediatos por e-mail. Ativei monitoramento proativo de integridade física S.M.A.R.T. (<code>smartd</code>), limites de capacidade do pool e captura de status de saída de scripts com envio de logs de erro por e-mail.</li>
+          <li><strong>Documentação Arquitetural e Engenharia:</strong> Elaborei documentação arquitetural abrangente detalhando topologias de rede, alocações de hardware virtual e procedimentos de implantação usando uma stack self-hosted do Wiki.js e repositório versionado no Git.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-header">
+          <span class="job-title">Implantação de Cloud Pública e Segurança</span>
+          <span class="job-date">2024</span>
+        </div>
+        <div class="job-sub">Infraestrutura em Nuvem (Oracle Cloud Infrastructure - OCI)</div>
+        <ul class="bullets">
+          <li>
+            Provisionei e protegi infraestrutura de nuvem pública na Oracle Cloud para hospedar servidores acessíveis publicamente, protegendo as interfaces de gerenciamento por meio de um proxy reverso Nginx com autenticação de dois fatores (2FA) obrigatória.
+            <div class="url-item">
+              <strong>URL / Demonstração:</strong> <a href="https://[sua-url-ou-servico.com]" target="_blank">https://[sua-url-ou-servico.com]</a>
+            </div>
+          </li>
+          <li>Estruturei arquitetura de Ingress seguro conectada via túnel WireGuard de saída (outbound) originado da rede local, viabilizando acesso externo controlado sem necessidade de abertura de portas de entrada ou regras de NAT no roteador local.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-header">
+          <span class="job-title">Pipeline Automatizado de Processamento de Mídia</span>
+          <span class="job-date">2026</span>
+        </div>
+        <div class="job-sub">Automação de Scripts em Python e Shell</div>
+        <ul class="bullets">
+          <li>Desenvolvi rotinas automatizadas utilizando <code>ffmpeg</code> e <code>yt-dlp</code> para ingestão, segmentação por timestamps e catalogação dinâmica de metadados em fluxos de áudio e vídeo.</li>
+          <li>Versionamento estruturado no Git/GitHub aplicando boas práticas de sanitização de scripts (<code>set -euo pipefail</code>), parâmetros modulares e controle de dependências.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Idiomas -->
+    <section>
+      <h2>Idiomas</h2>
+      <p style="font-size: 13px;">
+        <strong>Português:</strong> Nativo &nbsp;|&nbsp; 
+        <strong>Inglês:</strong> Leitura e escrita técnica avançadas (documentações, RFCs, manuais e repositórios internacionais); comunicação intermediária.
+      </p>
+    </section>
+  </div>
+</body>
+</html>
